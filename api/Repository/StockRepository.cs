@@ -37,14 +37,14 @@ namespace api.Repository
             return stockModel;
         }
 
-        public Task<List<Stock>> GetAllAsync()
+        public async Task<List<Stock>> GetAllAsync()
         {
-            return _context.Stock.ToListAsync();
+            return await _context.Stock.ToListAsync();
         }
 
-        public Task<Stock?> GetByIdAsync(int id)
+        public async Task<Stock?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Stock.FindAsync(id);
         }
 
         public Task<Stock?> UpdateAsync(int id, UpdateStockRequestDto stockDto)
