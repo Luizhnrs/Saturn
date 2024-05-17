@@ -26,7 +26,7 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var stocks = await _context.Stock.ToListAsync();
+            var stocks = await _stockRepo.GetAllAsync();
             var stockDto = stocks.Select(s => s.ToStockDto());
             return Ok(stocks);
         }
